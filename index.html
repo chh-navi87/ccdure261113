@@ -297,6 +297,23 @@ body{padding-bottom:150px}
 .more.miho2 .brush{font-family:'Nanum Brush Script','Noto Serif KR',cursive;font-size:max(44px,15cqw);line-height:1;color:var(--ink)}
 .more.miho2 .mh-top+.ms{border-top:0}
 @media (max-width:350px){.item .pic{aspect-ratio:2.2/1}.item.multi .pic{aspect-ratio:1.8/1}.item .ov{padding-top:30px}}
+
+.sheet .cal{margin:6px 0 2px}
+.sheet .cal-rule{margin:0 0 8px;font-size:15.5px;line-height:1.5;color:var(--muted)}
+.sheet .cal-head{font-weight:900;font-size:19px;margin-bottom:6px}
+.sheet .cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.sheet .cal-dow{text-align:center;font-size:14px;color:var(--muted);font-weight:700;padding:2px 0}
+.sheet .cal-dow:first-child{color:#e0192d}
+.sheet .cd{aspect-ratio:1/1;border:0;border-radius:12px;background:transparent;color:var(--muted);font:700 17px var(--body);cursor:default;opacity:.4;padding:0}
+.sheet .cd.ok{background:var(--soft);color:#1f7a45;opacity:1;cursor:pointer;font-weight:900;box-shadow:inset 0 0 0 2px #2e9b57}
+.sheet .cd.sel{background:var(--coral);color:#fff;box-shadow:none}
+.sheet .cal-st{margin:8px 0 2px;font-size:16.5px;line-height:1.5;font-weight:700}
+
+.sheet .mth{display:flex;gap:8px;margin:4px 0 2px}
+.sheet .mb{flex:1 1 0;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:12px 8px;font:900 18px var(--body);cursor:pointer}
+.sheet .mb.on{background:#2e9b57;border-color:#2e9b57;color:#fff}
+.sheet .addr input{display:block;width:100%;box-sizing:border-box;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);padding:11px 12px;font:500 17px var(--body)}
+.sheet .addr .cal-rule{margin:6px 0 0}
 </style></head><body>
 
 <main class="in">
@@ -326,13 +343,25 @@ body{padding-bottom:150px}
 <div class="sheet-bg" id="sheetBg" hidden></div>
 <section class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="shTitle">
   <div class="sh-head"><b id="shTitle">카톡 주문서</b><button type="button" id="shClose">닫기</button></div>
-  <p class="sh-sub">원하는 상품의 수량을 ＋ / − 로 정해 주세요.</p>
+  <p class="sh-sub">상품 수량, 받고 싶은 날짜, 받는 방법을 정해 주세요.</p>
   <div class="sh-body">
-    <h5>11.20(금) 하루만 공급</h5><div class="ord" data-name="유기농 (햇)피땅콩 800g" data-price="12900"><div class="od"><span class="nm">유기농 (햇)피땅콩 800g</span><small>12,900원</small></div><div class="qty"><button type="button" class="qm" aria-label="유기농 (햇)피땅콩 800g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="유기농 (햇)피땅콩 800g 수량 늘리기">＋</button></div></div><div class="ord" data-name="친환경 그린레몬 500g" data-price="9900"><div class="od"><span class="nm">친환경 그린레몬 500g</span><small>9,900원</small></div><div class="qty"><button type="button" class="qm" aria-label="친환경 그린레몬 500g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="친환경 그린레몬 500g 수량 늘리기">＋</button></div></div><div class="ord" data-name="(맛찬)생깻잎무침 120g" data-price="5800"><div class="od"><span class="nm">(맛찬)생깻잎무침 120g</span><small>5,800원</small></div><div class="qty"><button type="button" class="qm" aria-label="(맛찬)생깻잎무침 120g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="(맛찬)생깻잎무침 120g 수량 늘리기">＋</button></div></div><div class="ord" data-name="(맛찬)봄동나물 150g" data-price="4900"><div class="od"><span class="nm">(맛찬)봄동나물 150g</span><small>4,900원</small></div><div class="qty"><button type="button" class="qm" aria-label="(맛찬)봄동나물 150g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="(맛찬)봄동나물 150g 수량 늘리기">＋</button></div></div><div class="ord" data-name="(맛찬)꼬막양념무침 150g" data-price="8400"><div class="od"><span class="nm">(맛찬)꼬막양념무침 150g</span><small>8,400원</small></div><div class="qty"><button type="button" class="qm" aria-label="(맛찬)꼬막양념무침 150g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="(맛찬)꼬막양념무침 150g 수량 늘리기">＋</button></div></div><h5>다음 주 매장 판매 · 미리 주문</h5><div class="ord" data-name="용추골 청양고추장 250g" data-price="11800"><div class="od"><span class="nm">용추골 청양고추장 250g</span><small>11,800원</small></div><div class="qty"><button type="button" class="qm" aria-label="용추골 청양고추장 250g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="용추골 청양고추장 250g 수량 늘리기">＋</button></div></div><div class="ord" data-name="고단백 어포스낵 40g" data-price="2600"><div class="od"><span class="nm">고단백 어포스낵 40g</span><small>2,600원</small></div><div class="qty"><button type="button" class="qm" aria-label="고단백 어포스낵 40g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="고단백 어포스낵 40g 수량 늘리기">＋</button></div></div><div class="ord" data-name="젖산 마그네슘 스피드샷 30ml×14병" data-price="19800"><div class="od"><span class="nm">젖산 마그네슘 스피드샷 30ml×14병</span><small>19,800원</small></div><div class="qty"><button type="button" class="qm" aria-label="젖산 마그네슘 스피드샷 30ml×14병 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="젖산 마그네슘 스피드샷 30ml×14병 수량 늘리기">＋</button></div></div><div class="ord" data-name="더바른 햅쌀백미(미호) 10kg" data-price="48000"><div class="od"><span class="nm">더바른 햅쌀백미(미호) 10kg</span><small>48,000원</small></div><div class="qty"><button type="button" class="qm" aria-label="더바른 햅쌀백미(미호) 10kg 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="더바른 햅쌀백미(미호) 10kg 수량 늘리기">＋</button></div></div><div class="ord" data-name="더바른 햅쌀백미(미호) 4kg" data-price="19840"><div class="od"><span class="nm">더바른 햅쌀백미(미호) 4kg</span><small>19,840원</small></div><div class="qty"><button type="button" class="qm" aria-label="더바른 햅쌀백미(미호) 4kg 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="더바른 햅쌀백미(미호) 4kg 수량 늘리기">＋</button></div></div>
-    <label class="sh-lab" for="memo">받고 싶은 날 · 이름 · 연락처</label>
-    <textarea id="memo" rows="2" placeholder="예) 11/20(금) 오후에 받을게요 · 홍길동 010-0000-0000"></textarea>
+    <h5>11.20(금) 하루만 공급</h5><div class="ord" data-name="유기농 (햇)피땅콩 800g" data-price="12900" data-day="1" data-mat="0"><div class="od"><span class="nm">유기농 (햇)피땅콩 800g</span><small>12,900원</small></div><div class="qty"><button type="button" class="qm" aria-label="유기농 (햇)피땅콩 800g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="유기농 (햇)피땅콩 800g 수량 늘리기">＋</button></div></div><div class="ord" data-name="친환경 그린레몬 500g" data-price="9900" data-day="1" data-mat="0"><div class="od"><span class="nm">친환경 그린레몬 500g</span><small>9,900원</small></div><div class="qty"><button type="button" class="qm" aria-label="친환경 그린레몬 500g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="친환경 그린레몬 500g 수량 늘리기">＋</button></div></div><div class="ord" data-name="(맛찬)생깻잎무침 120g" data-price="5800" data-day="1" data-mat="1"><div class="od"><span class="nm">(맛찬)생깻잎무침 120g</span><small>5,800원</small></div><div class="qty"><button type="button" class="qm" aria-label="(맛찬)생깻잎무침 120g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="(맛찬)생깻잎무침 120g 수량 늘리기">＋</button></div></div><div class="ord" data-name="(맛찬)봄동나물 150g" data-price="4900" data-day="1" data-mat="1"><div class="od"><span class="nm">(맛찬)봄동나물 150g</span><small>4,900원</small></div><div class="qty"><button type="button" class="qm" aria-label="(맛찬)봄동나물 150g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="(맛찬)봄동나물 150g 수량 늘리기">＋</button></div></div><div class="ord" data-name="(맛찬)꼬막양념무침 150g" data-price="8400" data-day="1" data-mat="1"><div class="od"><span class="nm">(맛찬)꼬막양념무침 150g</span><small>8,400원</small></div><div class="qty"><button type="button" class="qm" aria-label="(맛찬)꼬막양념무침 150g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="(맛찬)꼬막양념무침 150g 수량 늘리기">＋</button></div></div><h5>다음 주 매장 판매 · 미리 주문</h5><div class="ord" data-name="용추골 청양고추장 250g" data-price="11800" data-day="0" data-mat="0"><div class="od"><span class="nm">용추골 청양고추장 250g</span><small>11,800원</small></div><div class="qty"><button type="button" class="qm" aria-label="용추골 청양고추장 250g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="용추골 청양고추장 250g 수량 늘리기">＋</button></div></div><div class="ord" data-name="고단백 어포스낵 40g" data-price="2600" data-day="0" data-mat="0"><div class="od"><span class="nm">고단백 어포스낵 40g</span><small>2,600원</small></div><div class="qty"><button type="button" class="qm" aria-label="고단백 어포스낵 40g 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="고단백 어포스낵 40g 수량 늘리기">＋</button></div></div><div class="ord" data-name="젖산 마그네슘 스피드샷 30ml×14병" data-price="19800" data-day="0" data-mat="0"><div class="od"><span class="nm">젖산 마그네슘 스피드샷 30ml×14병</span><small>19,800원</small></div><div class="qty"><button type="button" class="qm" aria-label="젖산 마그네슘 스피드샷 30ml×14병 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="젖산 마그네슘 스피드샷 30ml×14병 수량 늘리기">＋</button></div></div><div class="ord" data-name="더바른 햅쌀백미(미호) 10kg" data-price="48000" data-day="0" data-mat="0"><div class="od"><span class="nm">더바른 햅쌀백미(미호) 10kg</span><small>48,000원</small></div><div class="qty"><button type="button" class="qm" aria-label="더바른 햅쌀백미(미호) 10kg 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="더바른 햅쌀백미(미호) 10kg 수량 늘리기">＋</button></div></div><div class="ord" data-name="더바른 햅쌀백미(미호) 4kg" data-price="19840" data-day="0" data-mat="0"><div class="od"><span class="nm">더바른 햅쌀백미(미호) 4kg</span><small>19,840원</small></div><div class="qty"><button type="button" class="qm" aria-label="더바른 햅쌀백미(미호) 4kg 수량 줄이기">−</button><output class="qv">0</output><button type="button" class="qp" aria-label="더바른 햅쌀백미(미호) 4kg 수량 늘리기">＋</button></div></div>
+    <h5>받고 싶은 날짜</h5>
+    <p class="cal-rule">공급일 1영업일 전 오전 10시까지 주문할 수 있어요. 두레맛찬이 들어 있으면 2영업일 전 오전 10시까지예요. (일요일은 휴무)</p>
+    <div class="cal" id="cal" aria-label="받고 싶은 날짜 선택"></div>
+    <p class="cal-st" id="calSt"></p>
+    <h5>받는 방법</h5>
+    <div class="mth" role="radiogroup" aria-label="받는 방법">
+      <button type="button" class="mb on" data-m="pickup" role="radio" aria-checked="true">매장 픽업</button>
+      <button type="button" class="mb" data-m="delivery" role="radio" aria-checked="false">배송</button>
+    </div>
+    <div class="addr" id="addrBox" hidden>
+      <label class="sh-lab" for="addr">배송 받을 주소</label>
+      <input id="addr" type="text" placeholder="예) 춘천시 ○○동 ○○아파트 101동 101호" autocomplete="street-address">
+      <p class="cal-rule">주소를 적지 않으면 채팅에서 알려 주세요.</p>
+    </div>
     <label class="sh-lab" for="shPreview">보낼 내용 (눌러서 직접 복사할 수도 있어요)</label>
-    <textarea id="shPreview" rows="7" readonly></textarea>
+    <textarea id="shPreview" rows="8" readonly></textarea>
   </div>
   <div class="sh-foot">
     <div class="sh-total" id="shTotal"></div>
@@ -340,7 +369,7 @@ body{padding-bottom:150px}
       <button type="button" class="btn" id="shCopy">주문 내용 복사</button>
       <a class="btn y" id="shKakao" href="https://pf.kakao.com/_wxliTn/chat" target="_blank" rel="noopener">카톡으로 보내기</a>
     </div>
-    <p class="sh-note">‘카톡으로 보내기’를 누르면 주문 내용이 복사되고 채팅창이 열려요. 채팅창에 붙여넣기 해서 보내 주세요.</p>
+    <p class="sh-note">‘카톡으로 보내기’를 누르면 주문 내용이 복사되고 채팅창이 열려요. 채팅창에 붙여넣기 해서 보내 주세요. 이름과 연락처는 적지 않아도 돼요.</p>
   </div>
 </section>
 <textarea id="copyBuf" class="copybuf" readonly tabindex="-1" aria-hidden="true"></textarea>
@@ -348,15 +377,38 @@ body{padding-bottom:150px}
 <script>
 (function(){
   var ords=[].slice.call(document.querySelectorAll('.ord'));
-  var sheet=document.getElementById('sheet'), bg=document.getElementById('sheetBg'), memo=document.getElementById('memo');
+  var sheet=document.getElementById('sheet'), bg=document.getElementById('sheetBg');
+  var WIN_START='2026-11-16', WIN_END='2026-11-21', DAY_ONLY='2026-11-20', CAL_MONTH='2026-11';
+  var DOW='일월화수목금토', sel=null, method='pickup';
+  function pad(n){return (n<10?'0':'')+n;}
+  function P(s){var a=s.split('-');return new Date(Date.UTC(+a[0],+a[1]-1,+a[2]));}
+  function F(d){return d.getUTCFullYear()+'-'+pad(d.getUTCMonth()+1)+'-'+pad(d.getUTCDate());}
+  function dow(s){return P(s).getUTCDay();}
+  function addDays(s,k){var d=P(s);d.setUTCDate(d.getUTCDate()+k);return F(d);}
+  function lab(s){var d=P(s);return (d.getUTCMonth()+1)+'/'+d.getUTCDate()+'('+DOW.charAt(d.getUTCDay())+')';}
+  function today(){if(window.__TODAY)return window.__TODAY;try{return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}catch(e){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}}
+  /* 공급일에서 n영업일(일요일 제외) 전 날짜를 구해요 */
+  function cutoff(s,n){var c=0,d=s;while(c<n){d=addDays(d,-1);if(dow(d)!==0){c++;}}return d;}
+  window.__order={cutoff:cutoff};
   function won(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',')+'원';}
-  function lines(){var r=[];ords.forEach(function(o){var q=+o.querySelector('.qv').textContent;if(q>0)r.push({name:o.getAttribute('data-name'),qty:q,price:+o.getAttribute('data-price')});});return r;}
+  function lines(){var r=[];ords.forEach(function(o){var q=+o.querySelector('.qv').textContent;if(q>0){r.push({name:o.getAttribute('data-name'),qty:q,price:+o.getAttribute('data-price'),day:o.getAttribute('data-day')==='1',mat:o.getAttribute('data-mat')==='1'});}});return r;}
   function total(ls){return ls.reduce(function(s,l){return s+l.qty*l.price;},0);}
+  function rule(ls){return {hasDay:ls.some(function(l){return l.day;}),hasMat:ls.some(function(l){return l.mat;})};}
+  function candidates(r){var out=[],d=WIN_START;while(d<=WIN_END){if(dow(d)!==0&&(!r.hasDay||d===DAY_ONLY)){out.push(d);}d=addDays(d,1);}return out;}
+  function nowMin(){if(window.__TIME){var a=window.__TIME.split(':');return (+a[0])*60+(+a[1]);}try{var q=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date()).split(':');return ((+q[0])%24)*60+(+q[1]);}catch(e){var d=new Date();return d.getHours()*60+d.getMinutes();}}
+  function nDays(r){return r.hasMat?2:1;}
+  /* 공급일 N영업일 전 날짜의 오전 10시(10:00)까지 주문 가능 */
+  function valid(d,r){var c=cutoff(d,nDays(r)),t=today();return t<c||(t===c&&nowMin()<=600);}
   function msg(){
-    var ls=lines(), m=(memo.value||'').trim(), t='[춘천두레생협 거두점 주문]\n';
+    var ls=lines(), t='[춘천두레생협 거두점 주문]\n';
+    if(sel&&ls.length){t+='받고 싶은 날: '+lab(sel)+'\n';}
+    if(ls.length){
+      if(method==='delivery'){var ad=(document.getElementById('addr').value||'').trim();t+='받는 방법: 배송'+(ad?' (주소: '+ad+')':' (주소는 채팅으로 알려 드릴게요)')+'\n';}
+      else{t+='받는 방법: 매장 픽업\n';}
+    }
     if(ls.length){ls.forEach(function(l){t+='- '+l.name+' × '+l.qty+' = '+won(l.qty*l.price)+'\n';});t+='합계 '+won(total(ls))+'\n';}
     else{t+='주문할 상품: (직접 적어 주세요)\n';}
-    if(m){t+='받고 싶은 날/이름/연락처: '+m+'\n';}
+    t+='(비조합원의 경우, 10% 가산된 금액으로 구매 가능)\n';
     return t;
   }
   function toast(s){var t=document.getElementById('toast');t.textContent=s;t.hidden=false;clearTimeout(toast.k);toast.k=setTimeout(function(){t.hidden=true;},4200);}
@@ -366,13 +418,44 @@ body{padding-bottom:150px}
       try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){res(true);},fb);}else{fb();}}catch(e){fb();}
     });
   }
+  function drawCal(ls){
+    var r=rule(ls), cand=candidates(r), ok={}, nOk=0, cal=document.getElementById('cal'), st=document.getElementById('calSt');
+    cand.forEach(function(d){if(valid(d,r)){ok[d]=true;nOk++;}});
+    var note='';
+    if(sel&&!ok[sel]){note='선택했던 '+lab(sel)+'은 지금 주문할 수 없어서 해제했어요. ';sel=null;}
+    cal.textContent='';
+    var head=document.createElement('div');head.className='cal-head';head.textContent=CAL_MONTH.split('-')[0]+'년 '+(+CAL_MONTH.split('-')[1])+'월';cal.appendChild(head);
+    var grid=document.createElement('div');grid.className='cal-grid';
+    for(var i=0;i<7;i++){var h=document.createElement('div');h.className='cal-dow';h.textContent=DOW.charAt(i);grid.appendChild(h);}
+    var first=CAL_MONTH+'-01', lead=dow(first), days=new Date(Date.UTC(+CAL_MONTH.split('-')[0],+CAL_MONTH.split('-')[1],0)).getUTCDate();
+    for(var k=0;k<lead;k++){grid.appendChild(document.createElement('span'));}
+    for(var n=1;n<=days;n++){
+      (function(n){
+        var ds=CAL_MONTH+'-'+pad(n), b=document.createElement('button');
+        b.type='button';b.className='cd'+(ok[ds]?' ok':'')+(sel===ds?' sel':'');b.textContent=n;b.setAttribute('data-date',ds);
+        b.disabled=!ok[ds];b.setAttribute('aria-label',lab(ds)+(ok[ds]?' 선택':' 선택 불가'));
+        if(ok[ds]){b.addEventListener('click',function(){sel=ds;refresh();});}
+        grid.appendChild(b);
+      })(n);
+    }
+    cal.appendChild(grid);
+    if(sel){st.textContent=note+lab(sel)+' 공급 · '+lab(cutoff(sel,nDays(r)))+' 오전 10시까지 주문 가능'+(r.hasMat?' (두레맛찬 포함, 2영업일 전)':' (1영업일 전)');}
+    else if(!nOk){st.textContent=note+'지금은 주문할 수 있는 날짜가 없어요. 전화로 문의해 주세요.';}
+    else{st.textContent=note+'초록색 날짜를 눌러 선택해 주세요.'+(r.hasDay?' 땅콩·레몬·두레맛찬은 '+lab(DAY_ONLY)+' 하루만 공급이에요.':'');}
+    return {nOk:nOk};
+  }
   function refresh(){
     var ls=lines(), n=ls.length, sum=document.getElementById('fxSum'), tot=document.getElementById('shTotal');
     ords.forEach(function(o){var q=+o.querySelector('.qv').textContent;o.classList.toggle('is-on',q>0);});
+    drawCal(ls);
     if(n){sum.hidden=!sheet.hidden;document.getElementById('fxSumTx').textContent=n+'개 선택 · 합계 '+won(total(ls));tot.textContent=n+'개 · 합계 '+won(total(ls));}
     else{sum.hidden=true;tot.textContent='수량을 정하면 합계가 나와요';}
+    [].slice.call(document.querySelectorAll('.mb')).forEach(function(b){var on=b.getAttribute('data-m')===method;b.classList.toggle('on',on);b.setAttribute('aria-checked',on?'true':'false');});
+    document.getElementById('addrBox').hidden=(method!=='delivery');
     document.getElementById('shPreview').value=msg();
   }
+  [].slice.call(document.querySelectorAll('.mb')).forEach(function(b){b.addEventListener('click',function(){method=b.getAttribute('data-m');refresh();});});
+  document.getElementById('addr').addEventListener('input',refresh);
   ords.forEach(function(o){
     var out=o.querySelector('.qv');
     function set(q){out.textContent=Math.max(0,Math.min(99,q));refresh();}
@@ -387,11 +470,15 @@ body{padding-bottom:150px}
   if(banner){banner.addEventListener('click',function(e){e.preventDefault();openSheet();});}
   document.getElementById('shClose').addEventListener('click',closeSheet);
   bg.addEventListener('click',closeSheet);
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden)closeSheet();});
-  memo.addEventListener('input',refresh);
-  document.getElementById('shCopy').addEventListener('click',function(){copy(msg()).then(function(ok){toast(ok?'주문 내용을 복사했어요. 카톡 채팅창에 붙여넣어 주세요.':'복사가 안 되면 ‘보낼 내용’ 칸을 눌러 직접 복사해 주세요.');});});
-  document.getElementById('shKakao').addEventListener('click',function(){
-    if(lines().length||(memo.value||'').trim()){copy(msg()).then(function(ok){toast(ok?'주문 내용을 복사했어요. 카톡 채팅창에 붙여넣기 해 주세요.':'‘보낼 내용’ 칸의 글을 복사해 채팅창에 붙여넣어 주세요.');});}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden){closeSheet();}});
+  document.getElementById('shCopy').addEventListener('click',function(){
+    if(lines().length&&!sel){toast('받고 싶은 날짜를 먼저 선택해 주세요.');return;}
+    copy(msg()).then(function(ok){toast(ok?'주문 내용을 복사했어요. 카톡 채팅창에 붙여넣어 주세요.':'복사가 안 되면 ‘보낼 내용’ 칸을 눌러 직접 복사해 주세요.');});
+  });
+  document.getElementById('shKakao').addEventListener('click',function(e){
+    var ls=lines();
+    if(ls.length&&!sel){e.preventDefault();toast(drawCal(ls).nOk?'받고 싶은 날짜를 먼저 선택해 주세요.':'지금은 주문할 수 있는 날짜가 없어요. 전화로 문의해 주세요.');return;}
+    if(ls.length){copy(msg()).then(function(ok){toast(ok?'주문 내용을 복사했어요. 카톡 채팅창에 붙여넣기 해 주세요.':'‘보낼 내용’ 칸의 글을 복사해 채팅창에 붙여넣어 주세요.');});}
   });
   refresh();
 })();
