@@ -355,11 +355,6 @@ body{padding-bottom:150px}
       <button type="button" class="mb on" data-m="pickup" role="radio" aria-checked="true">매장 픽업</button>
       <button type="button" class="mb" data-m="delivery" role="radio" aria-checked="false">배송</button>
     </div>
-    <div class="addr" id="addrBox" hidden>
-      <label class="sh-lab" for="addr">배송 받을 주소</label>
-      <input id="addr" type="text" placeholder="예) 춘천시 ○○동 ○○아파트 101동 101호" autocomplete="street-address">
-      <p class="cal-rule">주소를 적지 않으면 채팅에서 알려 주세요.</p>
-    </div>
     <label class="sh-lab" for="shPreview">보낼 내용 (눌러서 직접 복사할 수도 있어요)</label>
     <textarea id="shPreview" rows="8" readonly></textarea>
   </div>
@@ -403,7 +398,7 @@ body{padding-bottom:150px}
     var ls=lines(), t='[춘천두레생협 거두점 주문]\n';
     if(sel&&ls.length){t+='받고 싶은 날: '+lab(sel)+'\n';}
     if(ls.length){
-      if(method==='delivery'){var ad=(document.getElementById('addr').value||'').trim();t+='받는 방법: 배송'+(ad?' (주소: '+ad+')':' (주소는 채팅으로 알려 드릴게요)')+'\n';}
+      if(method==='delivery'){t+='받는 방법: 배송\n';}
       else{t+='받는 방법: 매장 픽업\n';}
     }
     if(ls.length){ls.forEach(function(l){t+='- '+l.name+' × '+l.qty+' = '+won(l.qty*l.price)+'\n';});t+='합계 '+won(total(ls))+'\n';}
@@ -451,11 +446,9 @@ body{padding-bottom:150px}
     if(n){sum.hidden=!sheet.hidden;document.getElementById('fxSumTx').textContent=n+'개 선택 · 합계 '+won(total(ls));tot.textContent=n+'개 · 합계 '+won(total(ls));}
     else{sum.hidden=true;tot.textContent='수량을 정하면 합계가 나와요';}
     [].slice.call(document.querySelectorAll('.mb')).forEach(function(b){var on=b.getAttribute('data-m')===method;b.classList.toggle('on',on);b.setAttribute('aria-checked',on?'true':'false');});
-    document.getElementById('addrBox').hidden=(method!=='delivery');
     document.getElementById('shPreview').value=msg();
   }
   [].slice.call(document.querySelectorAll('.mb')).forEach(function(b){b.addEventListener('click',function(){method=b.getAttribute('data-m');refresh();});});
-  document.getElementById('addr').addEventListener('input',refresh);
   ords.forEach(function(o){
     var out=o.querySelector('.qv');
     function set(q){out.textContent=Math.max(0,Math.min(99,q));refresh();}
